@@ -1,0 +1,1421 @@
+/* Ensure HTML and body take full height and width */
+html, body {
+  height: 100%;
+  margin: 0; /* Remove default margin */
+  padding: 0;
+}
+
+
+/* General Styles */
+.App {
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  background-color: #000000; /* Dark background for the app */
+}
+
+
+.custom-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  color: white;
+  position: relative;
+  z-index: 2; /* Keep header above the image */
+  background-color: #000000;
+  border-bottom: 1px solid #FFFF00; /* Neon yellow border */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+}
+
+
+.header-left h1 {
+  color: #d580ff; /* Lighter neon purple */
+  font-family: 'Georgia', serif;
+  text-shadow: 0 0 10px rgba(213, 128, 255, 0.7), 
+               0 0 20px rgba(213, 128, 255, 0.5), 
+               0 0 30px rgba(213, 128, 255, 0.3);
+}
+
+.chef-icon {
+  color: #FFFFFF; /* White color */
+  filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-right: 20px;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #FF1493;
+  text-shadow: 0 0 3px #FF1493, 0 0 7px #FF1493, 0 0 10px #FF007F;
+ /* Glow effect */
+  margin-top: 25px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-style: italic;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color:#FFB6C1;
+  text-shadow: 0 0 5px #FF1493, 0 0 10px #FF1493, 0 0 15px #FF1493, 0 0 20px #FF00FF, 0 0 30px #FF00FF, 0 0 40px #FF00FF;
+}
+
+/* Container for image and special menu */
+.container {
+  display: flex; /* Aligns children in a row */
+}
+
+/* Today's Special Styles */
+.todays-special {
+  width: 40%; /* Width for Today's Special menu */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  color: white; /* Text color */
+  padding: 10px; /* Padding for better spacing */
+  overflow: hidden; /* Hide overflow */
+  z-index: 1; /* Ensure it's above other content */
+  height: 81.2vh; /* Increase height to fill full viewport height */
+  margin-left: 2%;
+}
+.todays-special h2 {
+  text-align: center; /* Center the title */
+  color:#ff0000;
+  text-shadow: 
+  0 0 5px rgba(255, 0, 0, 0.5), /* Soft glow */
+  0 0 10px rgba(255, 0, 0, 0.7), /* Medium glow */
+  0 0 15px rgba(255, 0, 0, 1), /* Strong glow */
+  0 0 20px rgba(255, 0, 0, 1); /* Very strong glow */
+}
+
+/* Styling for the menu list */
+.todays-special ul {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+}
+
+.todays-special li {
+  margin: 20px 0; /* Add space between items */
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.todays-special li::before {
+  content: "★"; /* Add star icon before each item */
+  color: #f8b400; /* Neon yellow */
+  margin-right: 10px; /* Space between star and text */
+  
+}
+
+.todays-special li b {
+  color:#00ffcc;
+}
+
+
+/* Image Section */
+.image-container {
+  width: 100vw; /* Set to 60% for the image */
+  height: 84vh; /* Takes 84% of the viewport height */
+  display: flex;
+  justify-content: flex-end; /* Align content to the right */
+  position: relative; /* Position it relatively */
+  margin-right: -120px;
+}
+
+.background {
+  background-image: url('/header.jpg'); /* Correct path for the image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  height: 100%; /* Make sure the background fills the container */
+  width: 100%; /* Make sure the background fills the container */
+  position: absolute; /* Position it absolutely */
+  right: 0; /* Align it to the right side of the viewport */
+  top: 0; /* Align to the top */
+}
+
+/* Our Menu Section */
+.our-menu-section {
+  margin-top: 20px;
+  border-bottom: 1px solid #FFFF00; /* Neon yellow border */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  border-top: 1px solid #FFFF00; /* Neon yellow border */;
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+}
+
+.our-menu-heading {
+  margin-top:20px;
+  color: #00f0ff; /* Light neon blue */
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+  font-size: 2rem;
+}
+
+.menu-icon{
+font-size: 35px;
+margin-bottom: -5px;
+color: #FFFFFF; /* White color */
+filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+}
+
+
+
+/* Dishes Section */
+.dishes-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+  gap: 20px; /* Space between the images */
+  margin: 20px; /* Margin around the section */
+}
+
+.dish {
+  text-align: center; /* Center the text under each image */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  transition: transform 0.6s; /* Smooth flip effect */
+  transform-style: preserve-3d; /* Preserve 3D space for flipping */
+  perspective: 1000px;
+  width: 80%; /* Full width to prevent margin issues */
+  margin-left: 7.2%;
+  position: relative;
+  height: 300px; /* Set a fixed height to avoid overflow and scrolling */
+  margin: 0 auto; /* Centering */
+}
+
+.dish-front, .dish-back {
+  position: absolute;
+  width: 100%;
+  height: 100%; /* Match the parent's height */
+  backface-visibility: hidden; /* Hide the back face of the card */
+  border-radius: 8px;
+  padding: 10px;
+  top: 0; /* Ensure it stays at the top */
+  left: 0;
+}
+
+.dish-front {
+  transform: rotateY(0deg); /* Initial state for the front */
+}
+
+.dish-back {
+  transform: rotateY(180deg); /* Rotate the back side 180 degrees */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for the back side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFF00; /* Neon yellow color for the price */
+}
+
+.dish:hover {
+  transform: rotateY(180deg); /* Flip the dish on hover */
+}
+
+.dish h3, .dish p {
+  backface-visibility: hidden; /* Prevent text from showing when flipped */
+}
+
+/* Style for the back side price */
+.dish-back .price-box  {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for the price box */
+  border-radius: 8px; /* Same border radius as the dish */
+  padding: 20px; /* Padding for the price */
+  color: #FFFF00; /* Neon yellow text for price */
+  font-size: 1.5em;
+  text-align: center;
+  width: 80%;
+  height: 85%;
+  font-style: italic;
+}
+
+.dish-image {
+  width: 90%; /* Make the image fill the container */
+  margin-top: 5px;
+  margin-right: 17px;
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 5px; /* Rounded corners for images */
+  backface-visibility: hidden; /* Hide the back face of the image when flipped */
+}
+
+.dish h3 {
+  color: #ebebeb; /* Light grey for dish name */
+  filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.dish p {
+  color: #FFFF00;
+  filter: drop-shadow(0 0 5px #FFFF00) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-top: 13px;
+}
+
+.order-now-btn{
+  background-color: #000000; /* Neon blue background */
+  color: white; /* White text color */
+  font-size: 0.8em; /* Font size */
+  padding: 10px 20px; /* Padding for button */
+  border: 1px solid rgb(245, 166, 212); /* Remove default border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s, border 0.3s; /* Smooth transitions */
+  filter: drop-shadow(0 0 0 #f0c3ee); /* Initial drop shadow */
+  font-style: italic;
+}
+
+button:hover {
+  transform: scale(1.02); /* Slightly enlarge the button on hover */
+  filter: drop-shadow(0 0 2em #c8afe9aa); /* Drop shadow on hover */
+  border: 1px solid #a646dd; /* Purple border on hover */
+}
+
+.circle-icon-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  margin-top: 5%; /* Add space above the icon */
+  margin-bottom: 2%; /* Add space below the icon if needed */
+  margin-right: -210%;
+}
+
+.circle-icon {
+  font-size: 50px; /* Adjust the size of the icon */
+  color: #FFDAB9; /* Set the icon color */
+  filter: drop-shadow(0 0 10px #FFDAB9) drop-shadow(0 0 20px #FFDAB9) drop-shadow(0 0 30px #FFDAB9); /* Glow effect */
+  transition: transform 0.3s, color 0.3s;
+}
+
+
+.circle-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon on hover */
+  color: #ffca9c; /* Change color on hover (optional) */
+  filter: drop-shadow(0 0 10px #FFDAB9) drop-shadow(0 0 20px #FFDAB9) drop-shadow(0 0 30px #FFF); /* Change glow effect on hover */
+}
+
+
+/* Flexbox layout for the restaurant info and image section */
+.organization-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.restaurant-info {
+  flex: 1;
+  color: #ebebeb;
+  font-size: 1.2em;
+}
+
+.restaurant-info h3 {
+   /* Neon yellow for the heading */
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  display: inline-block; /* To make the border wrap tightly around the text */
+  padding: 10px;
+  border: 3px solid; /* Basic solid border */
+  border-image: linear-gradient(to right, red, orange, green, blue, indigo, violet);
+  border-image-slice: 1; /* Ensures the gradient fills the whole border */
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #c4a59c; /* Text color */
+  border-radius: 8px; /* Optional rounded corners */
+
+}
+
+.restaurant-info p {
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.organization-image {
+  flex: 1;
+}
+
+.organization-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+  background-color: #000000; /* Footer background color */
+  padding: 15px 20px; /* Padding for footer */
+  text-align: center; /* Center the footer text */
+  color: white; /* Footer text color */
+  width: auto; /* Full width */
+  margin: 0; /* Remove margin */
+  margin-bottom: 22px;
+  position: relative; /* Position relative to the main content */
+  z-index: 1000; /* Stack above other content */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+  box-sizing: border-box;
+  font-size: 1.7vw; /* Responsive font size */
+  border-bottom: 1px solid #FFFF00; /* Neon yellow border */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  border-top: 1px solid #FFFF00; /* Neon yellow border */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  font-style: italic;
+}
+
+/* menu(API)*/
+.menu-wrapper {
+  margin: 20px; /* Add margin to the menu wrapper */
+}
+
+.menu-header{
+  text-align: center; /* Center the title text */
+   /* Adjust the top margin as needed */
+  color: #00f0ff; /* Light neon blue */
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+  font-size:1.4rem; /* Title font size */
+  font-style: italic; /* Italic style for title */
+  padding: 0; /* No padding to avoid box effect */
+  position: relative; /* Position relative for pseudo-element */
+  width: 100%; /* Ensure title takes full width of its container */
+  box-sizing: border-box; /* Include padding and border in width */
+  margin-bottom: 5%;
+  
+}
+
+.menu-header::after {
+  content: ""; /* Create a pseudo-element for the border */
+  display: block; /* Display as block to allow full width */
+  width: 100vw; /* Full width of the viewport */
+  height: 1px; /* Thickness of the border */
+  background-color: #FFFF00; /* Neon yellow border color */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to the left */
+  bottom: -5px; /* Position just below the title */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  margin-left: calc(50% - 50vw); /* Center it within the parent */
+}
+
+.menu-grid {
+  grid-template-columns: repeat(3, 1fr);  /* 3 items per row */
+  gap: 20px; /* Space between the items */
+  display: grid;
+}
+
+/* Item styles */
+.item {
+  text-align: center; /* Center the text under each image */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  transition: transform 0.6s; /* Smooth flip effect */
+  transform-style: preserve-3d; /* Preserve 3D space for flipping */
+  perspective: 1000px;
+  width: 80%; /* Full width to prevent margin issues */
+  margin-left: 7.2%; /* Centering */
+  position: relative;
+  height: 300px; /* Set a fixed height to avoid overflow and scrolling */
+  margin: 0 auto;
+}
+
+.item-front, .item-back {
+  position: absolute;
+  width: 100%;
+  height: 100%; /* Match the parent's height */
+  backface-visibility: hidden; /* Hide the back face of the card */
+  border-radius: 8px;
+  padding: 10px;
+  top: 0; /* Ensure it stays at the top */
+  left: 0;
+}
+
+.item-front {
+  transform: rotateY(0deg); /* Initial state for the front */
+}
+
+.item-back {
+  transform: rotateY(180deg); /* Rotate the back side 180 degrees */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background for the back side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFF00; /* Neon yellow color for the price */
+}
+
+.item:hover {
+  transform: rotateY(180deg); /* Flip the item on hover */
+}
+
+.item h3, .item p {
+  backface-visibility: hidden; /* Prevent text from showing when flipped */
+}
+
+/* Style for the back side price */
+.item-back .rating-box {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for the price box */
+  border-radius: 8px; /* Same border radius as the item */
+  padding: 20px; /* Padding for the price */
+  color: #FFFF00; /* Neon yellow text for price */
+  font-size: 1.5em;
+  text-align: center;
+  width: 80%;
+  height: 85%;
+  font-style: italic;
+}
+
+.item-image {
+  width: 90%; /* Make the image fill the container */
+  margin-top: 5px;
+  margin-right: 17px;
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 5px; /* Rounded corners for images */
+  backface-visibility: hidden; /* Hide the back face of the image when flipped */
+}
+
+.item h3{
+  color: #ebebeb;
+  filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255,255,255,0.1));
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.item p{
+color: #FFFF00;
+filter: drop-shadow(0 0 5px #FFFF00) drop-shadow(0 0 2px rgba(255,255,255,0.1));
+font-size: 1.4rem;
+font-style: italic;
+margin-top: 13px;
+}
+
+.order-btn{
+  background-color: #000000; /* Neon blue background */
+  color: white; /* White text color */
+  font-size: 0.8em; /* Font size */
+  padding: 10px 20px; /* Padding for button */
+  border: 1px solid rgb(245, 166, 212); /* Remove default border */
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s, border 0.3s; /* Smooth transitions */
+  filter: drop-shadow(0 0 0 #f0c3ee); /* Initial drop shadow */
+  font-style: italic;
+}
+
+button:hover {
+  transform: scale(1.02); /* Slightly enlarge the button on hover */
+  filter: drop-shadow(0 0 2em #c8afe9aa); /* Drop shadow on hover */
+  border: 1px solid #a646dd; /* Purple border on hover */
+}
+
+/* About Us Page Styles */
+
+.about-container {
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
+  color: #ebebeb; /* Light text color */
+  padding: 30px;
+  border-radius: 10px; /* Rounded corners */
+  max-width: 800px; /* Max width for the container */
+  margin: 30px auto; /* Center the container */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.about-title {
+  text-align: center; /* Center the title text */
+   /* Adjust the top margin as needed */
+  color: #00f0ff; /* Light neon blue */
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+  font-size: 2rem; /* Title font size */
+  font-style: italic; /* Italic style for title */
+  padding: 0; /* No padding to avoid box effect */
+  position: relative; /* Position relative for pseudo-element */
+  width: 100%; /* Ensure title takes full width of its container */
+  box-sizing: border-box; /* Include padding and border in width */
+  
+}
+
+.about-title::after {
+  content: ""; /* Create a pseudo-element for the border */
+  display: block; /* Display as block to allow full width */
+  width: 100vw; /* Full width of the viewport */
+  height: 1px; /* Thickness of the border */
+  background-color: #FFFF00; /* Neon yellow border color */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to the left */
+  bottom: -5px; /* Position just below the title */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  margin-left: calc(50% - 50vw); /* Center it within the parent */
+}
+
+.about-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  margin-top: 5%;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.about-mission, .about-history, .about-values, .about-team {
+  margin-bottom: 20px;
+  border: 1px solid #f0c3ee; /* Border for sections */
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners */
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for contrast */
+  font-style: italic;
+}
+
+.about-mission h3,
+.about-history h3,
+.about-values h3,
+.about-team h3 {
+  color: #f0c3ee; /* Bright color for section titles */
+  text-shadow: 
+  0 0 5px #ed82e7,  /* Soft pink glow */
+  0 0 10px #dd70d8, /* Medium glow */
+  0 0 15px #ed7ce7, /* Stronger glow */
+  0 0 20px #f0c3ee; /* Very strong glow */
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  list-style-type: square;
+}
+
+.about-values ul {
+  list-style: none;
+  padding-left: 20px; /* Indentation */
+}
+
+.about-values li {
+  margin-bottom: 5px; /* Space between items */
+  font-size: 1.1rem; /* Slightly larger font for values */
+}
+
+
+
+/* src/components/Contact.css */
+.contact-container {
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-title{
+  text-align: center; /* Center the title text */
+   /* Adjust the top margin as needed */
+  color: #00f0ff; /* Light neon blue */
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+  font-size:1.4rem; /* Title font size */
+  font-style: italic; /* Italic style for title */
+  padding: 0; /* No padding to avoid box effect */
+  position: relative; /* Position relative for pseudo-element */
+  width: 100%; /* Ensure title takes full width of its container */
+  box-sizing: border-box; /* Include padding and border in width */
+  margin-bottom: 5%;
+  
+}
+
+.contact-title::after {
+  content: ""; /* Create a pseudo-element for the border */
+  display: block; /* Display as block to allow full width */
+  width: 100vw; /* Full width of the viewport */
+  height: 1px; /* Thickness of the border */
+  background-color: #FFFF00; /* Neon yellow border color */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to the left */
+  bottom: -5px; /* Position just below the title */
+  box-shadow: 0px 0px 7px 2px #FFFF00; /* Neon glow effect */
+  margin-left: calc(50% - 50vw); /* Center it within the parent */
+}
+
+
+.contact-container h2 {
+  color: #00f0ff; /* Light neon blue */
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7),
+               0 0 20px rgba(0, 240, 255, 0.5),
+               0 0 30px rgba(0, 240, 255, 0.3);
+  font-size: 2rem;
+  font-style: italic;
+}
+
+.contact-container p {
+  color: #ebebeb;
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  font-style: italic;
+  padding-top:1px;
+}
+
+.form-container {
+  background-color: black;
+  padding: 20px;
+  border: 2px solid white;
+  filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  width: 30%;
+  margin:40px auto;
+  font-style: italic;
+}
+
+.form-container h3 {
+  color: #f0c3ee;
+  text-shadow: 0 0 5px rgba(240, 195, 238, 0.8), 0 0 10px rgba(240, 195, 238, 0.5);
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: #f0c3ee;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: rgb(177, 126, 219);
+  color:black;
+}
+
+
+/* Connected Section Container */
+.connected-container {
+  background-color: black;
+  padding: 20px;
+  border: 2px solid white;
+   filter: drop-shadow(0 0 5px #FFFFFF) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+  width: 70%;
+  margin: 30px auto; /* Same width as form container */
+}
+ .connected-container h3{
+  color: #f0c3ee;
+  font-size: 2rem;
+  text-shadow: 0 0 5px rgba(240, 195, 238, 0.8), 0 0 10px rgba(240, 195, 238, 0.5);
+  font-style: italic;
+ }
+
+
+.contact-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #000;
+  border-radius: 8px;
+}
+
+.contact-section {
+  width: 30%;
+  text-align: center;
+}
+
+.contact-icon {
+  color: #f17777;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 5px #f17777) drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+}
+
+.contact-section p {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.phn1,.phn2,.phn3{
+  padding: 10%;
+}
+
+.e1,.e2,.e3{
+  padding: 10%;
+}
+
+.a1,.a2,.a3{
+padding:3%;
+}
+
+.img{
+  width:50%;
+  align-items: center;
+  border-radius: 12%;
+  margin-top: -11%;
+  box-shadow: 
+  0 0 5px rgba(255, 255, 255, 0.5),  /* Soft white glow */
+  0 0 5px rgba(255, 255, 255, 0.7), /* Medium white glow */
+  0 0 5px rgba(255, 255, 255, 1),   /* Strong white glow */
+  0 0 20px rgba(255, 255, 255, 1);   /* Very strong white glow */
+  margin-left: 27%;
+}
+
+/* spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #8395d4; /* Change color as needed */
+  box-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.5), /* Soft white glow */
+    0 0 10px rgba(255, 255, 255, 0.7), /* Medium white glow */
+    0 0 15px rgba(255, 255, 255, 1), /* Strong white glow */
+    0 0 20px rgba(255, 255, 255, 1), /* Very strong white glow */
+    0 0 15px #8395d4, /* Soft green glow */
+    0 0 30px #8395d4, /* Medium green glow */
+    0 0 45px #8395d4; /* Strong green glow */
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  animation-delay: -1.0s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+}
+
+.order-now-container {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text for contrast */
+  padding: 20px; /* Add some padding for better spacing */
+}
+.order-now-container h2{
+  font-size: 1.9em;
+  font-style: italic;
+  margin-bottom: 40px;
+  display: inline-block; /* To make the border wrap tightly around the text */
+  padding: 10px;
+  border: 3px solid; /* Basic solid border */
+  border-image: linear-gradient(to right,  blue, indigo, violet);
+  border-image-slice: 1; /* Ensures the gradient fills the whole border */
+  font-weight: bold;
+  color: #e8e8e8; /* Text color */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), /* White glow */
+  0 0 10px rgba(255, 255, 255, 0.5); /* More intense glow */
+  border-radius: 8px; /* Optional rounded corners */
+  width: 50%;
+
+}
+
+.order-summary {
+  text-align: center; /* Center align for better aesthetics */
+}
+
+.order-image {
+  max-width:30%; /* Ensure image is responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5%;
+  margin-bottom: 1%;
+}
+
+.ondishname {
+  color: greenyellow;/* Ensure the dish name is visible */
+  text-shadow: 0 0 5px rgba(173, 255, 47, 0.7), /* Light green glow */
+               0 0 10px rgba(173, 255, 47, 0.5); /* More intense glow */
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.onpricename {
+  color: yellow; /* Ensure the price is visible */
+  text-shadow: 0 0 5px #cace5b,   /* Soft glow */
+               0 0 10px #c9cd61;  /* More intense glow */
+  font-style: italic;
+  font-size: 1.3rem;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the controls horizontally */
+  margin: 10px 0;
+}
+
+.quantity-controls button {
+  background-color: #75ceb5; /* Your desired button color */
+  box-shadow: 0 0 30px #75ceb5, 0 0 5px #75ceb5, 0 0 7px #75ceb5;
+  color: #000000;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+
+.quantity-controls span {
+  font-size: 1.2rem; /* Adjust size as needed */
+  margin: 0 10px;
+}
+
+.total{
+  color: #ffc0fb;
+  text-shadow: 0 0 5px #ffc0fb, 
+  0 0 10px #ffc0fb; 
+  border: 2px solid rgb(255, 255, 255);
+  padding: 20px;
+  width: 25%;
+  margin-left: 35%;
+  font-style: italic;
+  font-size: 150%;
+}
+
+.order-form-group {
+  margin-bottom: 15px; /* Space between each input group */
+}
+
+.order-form-group label {
+  display: block; /* Makes the label take full width */
+  margin-bottom: 5px; /* Space between label and input */
+  color: #ebebeb; /* Label color */
+}
+
+.order-form-group input {
+  width: 50%; /* Full width for inputs */
+  padding: 10px; /* Padding inside the input */
+  border: 2px solid #ffffff; /* Border color */
+  border-radius: 5px; /* Slightly rounded corners */
+  background-color: #000000; /* Input background color */
+  color: #fff; /* Input text color */
+}
+
+.submit-btn {
+  background-color: #b894ef; /* Button background color */
+  color: #000000; /* Button text color */
+  padding: 10px 15px; /* Button padding */
+  border: none; /* No border for button */
+  border-radius: 5px; /* Rounded corners for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  font-style: italic;
+}
+
+.submit-btn:hover {
+  background-color: #420242; /* Darker shade on hover */
+  color: white;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .custom-header {
+    flex-direction: column; /* Stack header items vertically on small screens */
+    align-items: flex-start; /* Align header items to the left */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    align-items: flex-start; /* Align links to the left */
+  }
+
+  .nav-links li {
+    margin: 10px 0; /* Space out links */
+    margin-left: 75%;
+    list-style: square;
+    color: #ffffff; /* Set the color of the bullet */
+    
+  }
+
+  .container {
+    flex-direction: column; /* Stack special menu and image on small screens */
+    align-items: center; /* Center align on small screens */
+  }
+
+  .todays-special, .image-container {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .image-container {
+    width: 170vw; /* Full width */
+    height: 50vh; /* Adjust height for smaller screens */
+    justify-content: center; /* Center the content */
+    margin-right: 0; /* Remove negative margin */
+  }
+
+  .background {
+    background-image: url('/header.jpg'); /* Keep the same image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    height: 100%; /* Fill the container */
+    width: 100%; /* Fill the container */
+    position: absolute; /* Position it absolutely */
+    right: 0; /* Align to the right side */
+    top: 0; /* Align to the top */
+  }
+}
+
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .dishes-section {
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
+    gap: 15px; /* Reduced gap between images */
+    margin: 10px; /* Reduced margin around the section */
+    padding-top: 3%;
+    
+  }
+
+  .dish {
+    height: 250px; /* Adjust height for mobile */
+    width: 90%; /* Full width to avoid margin issues */
+    margin-left: -2%; /* Centering */
+  
+  }
+  @media screen and (max-width: 768px) {
+    .dish-image {
+        height: 200px; /* Set a fixed height for consistency */
+        object-fit: cover; /* Cover the full area while maintaining aspect ratio */
+        margin-left: -2%;
+        
+    }
+}
+
+  .dish h3 {
+    font-size: 1.3rem; /* Adjust font size for dish name */
+    margin-left: -2%;
+  }
+
+  .dish p {
+    font-size: 1.2rem; /* Adjust font size for price */
+    margin-left: -2%;
+  }
+
+  .dish-back .price-box {
+    font-size: 1.2em; /* Adjust font size for the back side price */
+    padding: 10px; /* Adjust padding for the price box */
+    margin-left:3%;
+  }
+
+  .order-now-btn {
+    font-size: 0.7em; /* Adjust font size for the button */
+    padding: 8px 16px; /* Adjust padding for the button */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dishes-section {
+    grid-template-columns: 1fr; /* 1 image per row on smaller screens */
+    gap: 10px; /* Reduced gap between images */
+    margin: 5px; /* Reduced margin around the section */
+  }
+
+  .dish {
+    height: 220px; /* Adjust height for smaller mobile devices */
+    width: 100%; /* Full width to avoid margin issues */
+  }
+
+  .dish-image {
+    height: 120px; /* Fixed height for images on smaller devices */
+  }
+
+  .dish h3 {
+    font-size: 1.1rem; /* Further adjust font size for dish name */
+  }
+
+  .dish p {
+    font-size: 1rem; /* Further adjust font size for price */
+  }
+
+  .dish-back .price-box {
+    font-size: 1em; /* Further adjust font size for the back side price */
+  }
+}
+
+
+/* Media Queries for Mobile View */
+@media screen and (max-width: 768px) {
+  .circle-icon-container{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */
+    display: block;
+    margin-bottom:4.5%;
+    margin-top: 7.5%;
+  }
+  
+
+  .circle-icon {
+   font-size: 2.5rem !important;  /* Slightly smaller for tablets */ 
+   color: #FFDAB9; /* Set the icon color */
+   filter: drop-shadow(0 0 10px #FFDAB9) drop-shadow(0 0 20px #FFDAB9) drop-shadow(0 0 30px #FFDAB9); /* Glow effect */
+  transition: transform 0.3s, color 0.3s;
+  opacity: 1;
+  z-index: 10;
+  margin-right:67%;
+  }
+}
+
+.circle-icon:hover{
+  color: #ffae67;
+  filter: drop-shadow(0 0 10px #FFDAB9) drop-shadow(0 0 20px #FFDAB9) drop-shadow(0 0 30px #FFDAB9); /* Glow effect */
+}
+
+
+@media screen and (max-width: 480px) {
+  .circle-icon {
+    font-size: 30px; /* Further decrease size for mobile devices */
+  }
+}
+
+/* Media Queries for Mobile View */
+@media screen and (max-width: 768px) {
+  .organization-section {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .restaurant-info {
+    flex: none; /* Remove flex-grow */
+    text-align: center; /* Center text */
+    margin-bottom: 15px; /* Add space below */
+  }
+
+  .organization-image {
+    flex: none; /* Remove flex-grow */
+    width: 100%; /* Full width for the image */
+  }
+
+  .organization-image img {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: none; /* Remove shadow for mobile */
+  }
+}
+
+
+/* Media Queries for Mobile View */
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 10px 15px; /* Adjust padding for mobile */
+    font-size: 4vw; /* Larger font size for better readability on mobile */
+    margin-bottom: 10px; /* Reduce bottom margin */
+    margin-top: 12%;
+  
+  }
+}
+
+
+/* Responsive Menu Styles */
+@media screen and (max-width: 768px) {
+  .menu-wrapper {
+    margin: 10px; /* Reduced margin for smaller screens */
+  }
+
+  .menu-header {
+    font-size: 1rem; /* Smaller title font size */
+    margin-bottom: 8%; /* Adjust margin for mobile */
+  }
+
+  .menu-header::after {
+    height: 0.5px; /* Thinner border for mobile */
+    box-shadow: 0px 0px 4px 1px #FFFF00; /* Slightly smaller neon glow */
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(1, 1fr);  /* 2 items per row on mobile */
+    gap: 20px; /* Smaller gap between items */
+    margin-left: -10%;
+  }
+
+  .item {
+    width: 95%; /* Almost full width */
+    margin-left: 2.5%; /* Centering */
+    height: 290px; /* Slightly smaller height */
+  }
+
+  .item-front, .item-back {
+    height: 100%;
+    padding: 8px; /* Adjust padding */
+  }
+
+  .item h3 {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+    margin-bottom: 4px;
+  }
+
+  .item p {
+    font-size: 1.2rem; /* Adjusted font size */
+    margin-top: 10px;
+  }
+
+  .item-back .rating-box {
+    font-size: 1.2em; /* Smaller price box */
+    padding: 15px; /* Adjust padding */
+    width: 90%; /* Adjust width */
+    height: 80%; /* Adjust height */
+    margin-left: 8%;
+  }
+
+  .item-image {
+    width: 85%; /* Smaller image width */
+    height: 180px; /* Smaller height */
+    margin-right:1%;
+    margin-top: 1%;
+  }
+
+  .order-btn {
+    font-size: 0.7em; /* Smaller button font size */
+    padding: 8px 16px; /* Smaller padding */
+  }
+
+  button:hover {
+    transform: scale(1.03); /* Slightly larger hover effect */
+    filter: drop-shadow(0 0 2em #c8afe9aa); /* Drop shadow on hover */
+    border: 1px solid #a646dd; /* Purple border on hover */
+    }
+  }
+
+  /* Responsive About Styles */
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 20px; /* Reduce padding for mobile */
+    max-width: 100%; /* Full width for mobile */
+    margin: 10px auto; /* Center with reduced margin */
+  }
+
+  .about-title {
+    font-size: 2rem; /* Smaller title font for mobile */
+  }
+
+  .about-title::after {
+    width: 100vw; /* Keep full width */
+    height: 0.5px; /* Thinner border for mobile */
+    box-shadow: 0px 0px 5px 2px #FFFF00; /* Slightly smaller neon glow */
+  }
+
+  .about-description {
+    font-size: 1rem; /* Smaller font size for mobile */
+    margin-top: 8%; /* Adjust spacing for readability */
+    margin-bottom: 20px; /* Reduce margin */
+    line-height: 1.5; /* Slightly tighter line spacing */
+  }
+
+  .about-mission, .about-history, .about-values, .about-team {
+    gap: 20%;
+    margin-bottom: 15px; /* Reduce margin for mobile */
+    padding: 30px; /* Reduce padding */
+    font-size: 1rem; /* Slightly smaller text */
+  }
+
+  .about-mission h3,
+  .about-history h3,
+  .about-values h3,
+  .about-team h3 {
+    font-size: 1.5rem; /* Smaller section titles for mobile */
+    margin-bottom: 8px; /* Adjust margin */
+  }
+
+  .about-values ul {
+    padding-left: 15px; /* Adjust indentation */
+  }
+
+  .about-values li {
+    margin-bottom: 3px; /* Reduce space between items */
+    font-size: 1rem; /* Slightly smaller font for values */
+  }
+
+}
+/* Default Styles (Desktop) */
+.img {
+  display: block; /* Show image by default */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .contact-container {
+      padding: 10px;
+  }
+
+  .contact-title {
+      font-size: 2rem; /* Reduce title font size */
+      padding: 2%;
+      margin-bottom:30px; /* Increase margin for spacing */
+  }
+
+  .form-container {
+      width: 85%; /* Make form container wider for smaller screens */
+      margin: 20px auto; /* Reduce margin */
+  }
+
+  .form-container h3 {
+      font-size: 24px; /* Reduce font size */
+  }
+
+  .form-group input,
+  .form-group textarea {
+      width: 90%; /* Make inputs full width */
+      font-style: italic;
+  }
+
+  .submit-btn {
+      width: 100%; /* Make button full width */
+      padding: 15px; /* Increase padding for better touch area */
+  }
+
+  .connected-container {
+      width: 80%; /* Make connected section wider */
+  }
+
+  .contact-details {
+      flex-direction: column; /* Stack contact sections vertically */
+      align-items: center; /* Center align items */
+      margin-top: 20px; /* Add spacing above contact details */
+  }
+
+  .contact-section {
+      width: 90%; /* Make each section full width */
+      margin-bottom: 20px; /* Add spacing between sections */
+      text-align: center; /* Center align text */
+  }
+
+  /* Reorder contact sections for mobile view */
+  .contact-section.address {
+      order: 1; /* Address first */
+    
+  }
+  .contact-section.phn1 {
+      order: 2; /* Phone number second */
+
+  }
+  @media only screen and (max-width: 768px) {
+    .contact-section.e1 {
+      order: 3;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      word-wrap: break-word; /* Ensures long emails break to the next line */
+    }
+  }
+  
+  
+  /* Hide image in mobile view */
+  .img {
+      display: none; /* Hide the image */
+  }
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .order-now-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .order-now-container h2 {
+    font-size: 1.5em; /* Reduce font size for heading */
+    width: 90%; /* Make heading full width */
+    margin:20px auto; /* Center align heading */
+  }
+
+  .order-image {
+    max-width: 80%; /* Make image larger for mobile */
+    margin: 10px auto; /* Center the image */
+    display: block; /* Ensure the image is a block element */
+  }
+
+  .ondishname {
+    font-size: 1.5rem; /* Smaller dish name font size */
+  }
+
+  .onpricename {
+    font-size: 1.1rem; /* Smaller price font size */
+  }
+
+  .quantity-controls button {
+    font-size: 1.5rem; /* Adjust button font size */
+    padding: 5px 10px; /* Maintain padding */
+  }
+
+  .quantity-controls button:hover {
+    border-color: #000000;
+    font-size: 1.5rem; /* Adjust button font size */
+    padding: 5px 10px; /* Maintain padding */
+  }
+
+  .quantity-controls span {
+    font-size: 1rem; /* Smaller quantity text size */
+  }
+
+  .total {
+    width: 80%; /* Make total width responsive */
+    margin: 10px auto; /* Center align total */
+    font-size: 1.2rem; /* Smaller font size for total */
+  }
+
+  .order-form-group input {
+    width: 90%; /* Make input fields wider */
+    padding: 8px; /* Adjust padding */
+  }
+
+  .submit-btn {
+    width: 90%; /* Full width button */
+    padding: 10px; /* Maintain padding */
+    font-size: 1.2rem; /* Adjust button font size */
+  }
+}
